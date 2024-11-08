@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="characterSearchApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Character Search App</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="CharacterSearchController">
+
+  <div>
+    <h2>Character Position Finder</h2>
+    <label>Enter Text: </label>
+    <input type="text" ng-model="textInput" placeholder="Type a sentence here">
+    <br><br>
+    
+    <label>Enter Character to Search: </label>
+    <input type="text" ng-model="characterInput" maxlength="1" placeholder="Type a character">
+    <br><br>
+    
+    <button ng-click="findCharacter()">Find Character</button>
+    <br><br>
+
+    <div ng-if="positions.length > 0">
+      <p>Character found at position(s): {{ positions.join(', ') }}</p>
+    </div>
+    <div ng-if="positions.length === 0 && searchPerformed">
+      <p>Character not found in the text.</p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
